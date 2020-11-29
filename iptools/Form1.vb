@@ -111,9 +111,20 @@ errHandler:
         Dim par As Word.Paragraph
         Dim fld As Word.Field
         Dim txt As String
+        Dim i, parcount As Integer
+
+        On Error GoTo errHandler
+
+        If Information.IsNothing(Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection) Then
+            Exit Sub
+        End If
 
         sel = Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection
-        For Each par In sel.Paragraphs
+        par = sel.Paragraphs(1)
+        parcount = sel.Paragraphs.Count
+
+        i = 0
+        Do Until i = parcount Or Information.IsNothing(par)
 
             For Each fld In par.Range.Fields
                 If Not Information.IsNothing(fld.Code) Then
@@ -123,7 +134,13 @@ errHandler:
                     End If
                 End If
             Next
-        Next
+            i = i + 1
+            par = par.Next
+        Loop
+
+        Exit Sub
+ErrHandler:
+        MsgBox(Err.Description)
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
@@ -255,7 +272,7 @@ ErrHandler:
         Dim fld As Word.Field
         Dim partext, strformat As String
         Dim pars As Word.Paragraphs
-
+        Dim i, parcount As Integer
 
         On Error GoTo errHandler
 
@@ -268,7 +285,11 @@ ErrHandler:
         sel = Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection
         pars = sel.Paragraphs
 
-        For Each par In pars
+        parcount = sel.Paragraphs.Count
+        par = sel.Paragraphs(1)
+
+        i = 0
+        Do Until i = parcount Or Information.IsNothing(par)
 
             rg = par.Range
             partext = rg.Text
@@ -279,8 +300,11 @@ ErrHandler:
                 fld = rg.Fields.Add(rg, Word.WdFieldType.wdFieldEmpty, "SEQ IPT_PARS \# " & strformat, True)
 
             End If
+            i = i + 1
+            par = par.Next
 
-        Next
+        Loop
+
         Exit Sub
 errHandler:
         MsgBox(Err.Description)
