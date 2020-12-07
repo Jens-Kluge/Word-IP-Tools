@@ -8,6 +8,10 @@
             <button id="BtnPars" label="Number Paragraphs"
              screentip="numbering" onAction="OnBtnPars" getImage="btnParsGetImage" size="large"
              supertip="Numbers paragraphs in [0000] format."/>
+
+          <button id="BtnStcs" label="Number Sentences"
+             screentip="numbering" onAction="OnBtnStcs" getImage="btnStcsGetImage" size="large"
+             supertip="Numbers sentences"/>
         </group>
       </tab>
     </tabs>

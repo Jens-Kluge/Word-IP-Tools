@@ -20,7 +20,8 @@ Public Class Ribbon1
     Implements Office.IRibbonExtensibility
 
     Private ribbon As Office.IRibbonUI
-    Private fmnav As frmNav = Nothing
+    Private fmNumberParagraphs As frmNumberParagraphs = Nothing
+    Private fmNumberSentences As frmNumberSentences = Nothing
 
     Public Sub New()
     End Sub
@@ -37,15 +38,15 @@ Public Class Ribbon1
 
     Public Sub OnBtnPars(ctrl As Office.IRibbonControl)
 
-        If Information.IsNothing(fmNav) Then
-            fmnav = New frmNav
-            fmnav.Show()
+        If fmNumberParagraphs Is Nothing Then
+            fmNumberParagraphs = New frmNumberParagraphs
+            fmNumberParagraphs.Show()
         Else
-            If fmnav.Visible Then
-                fmnav.BringToFront()
+            If fmNumberParagraphs.Visible Then
+                fmNumberParagraphs.BringToFront()
             Else
-                fmnav = New frmNav
-                fmnav.Show()
+                fmNumberParagraphs = New frmNumberParagraphs
+                fmNumberParagraphs.Show()
             End If
         End If
     End Sub
@@ -56,6 +57,30 @@ Public Class Ribbon1
         btnParsGetImage = bmp
     End Function
 
+    ''' <summary>
+    ''' Load the number sentences form
+    ''' </summary>
+    ''' <param name="ctrl"></param>
+    Public Sub OnBtnStcs(ctrl As Office.IRibbonControl)
+
+        If fmNumberSentences Is Nothing Then
+            fmNumberSentences = New frmNumberSentences
+            fmNumberSentences.Show()
+        Else
+            If fmNumberSentences.Visible Then
+                fmNumberSentences.BringToFront()
+            Else
+                fmNumberSentences = New frmNumberSentences
+                fmNumberSentences.Show()
+            End If
+        End If
+    End Sub
+
+    Public Function btnStcsGetImage(ctrl As Office.IRibbonControl) As System.Drawing.Bitmap
+        Dim bmp As System.Drawing.Bitmap
+        bmp = My.Resources.Document_icon
+        btnStcsGetImage = bmp
+    End Function
 #End Region
 
 #Region "Helpers"

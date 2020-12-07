@@ -25,15 +25,38 @@
     <OutputType>Library</OutputType>
     <RootNamespace>iptools</RootNamespace>
     <AssemblyName>iptools</AssemblyName>
-    <LoadBehavior>3</LoadBehavior>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <DefineConstants>VSTO40</DefineConstants>
     <StartupObject>
     </StartupObject>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <BootstrapperComponentsLocation>HomeSite</BootstrapperComponentsLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <InstallUrl />
+    <TargetCulture>en</TargetCulture>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>days</UpdateIntervalUnits>
+    <IsWebBootstrapper>False</IsWebBootstrapper>
+    <ProductName>iptools</ProductName>
+    <PublisherName />
+    <SupportUrl />
+    <FriendlyName>iptools</FriendlyName>
+    <OfficeApplicationDescription />
+    <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
   <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
@@ -181,10 +204,16 @@
   -->
   <ItemGroup>
     <AppDesigner Include="My Project\" />
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frmNumberSentences.Designer.vb">
+      <DependentUpon>frmNumberSentences.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="frmNumberSentences.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNumberParagraphs.Designer.vb">
+      <DependentUpon>frmNumberParagraphs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNumberParagraphs.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
@@ -204,8 +233,11 @@
       <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="frmNumberSentences.resx">
+      <DependentUpon>frmNumberSentences.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNumberParagraphs.resx">
+      <DependentUpon>frmNumberParagraphs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -242,16 +274,10 @@
     <None Include="Resources\Arrow-Next-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-rewind-100.png" />
+    <None Include="Resources\Arrow-Back-2-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8-play-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-back-100.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-fast-forward-100.png" />
+    <None Include="Resources\Arrow-Next-2-icon.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

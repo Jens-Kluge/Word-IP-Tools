@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmNav
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class frmNumberParagraphs
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,10 @@ Partial Class frmNav
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNav))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNumberParagraphs))
         Me.btnNumberPars = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnRemove = New System.Windows.Forms.Button()
@@ -44,7 +44,7 @@ Partial Class frmNav
         '
         'btnNumberPars
         '
-        Me.btnNumberPars.Location = New System.Drawing.Point(70, 30)
+        Me.btnNumberPars.Location = New System.Drawing.Point(18, 20)
         Me.btnNumberPars.Name = "btnNumberPars"
         Me.btnNumberPars.Size = New System.Drawing.Size(154, 56)
         Me.btnNumberPars.TabIndex = 0
@@ -53,7 +53,7 @@ Partial Class frmNav
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(402, 30)
+        Me.btnUpdate.Location = New System.Drawing.Point(350, 20)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(154, 56)
         Me.btnUpdate.TabIndex = 1
@@ -62,7 +62,7 @@ Partial Class frmNav
         '
         'btnRemove
         '
-        Me.btnRemove.Location = New System.Drawing.Point(230, 30)
+        Me.btnRemove.Location = New System.Drawing.Point(178, 20)
         Me.btnRemove.Name = "btnRemove"
         Me.btnRemove.Size = New System.Drawing.Size(166, 56)
         Me.btnRemove.TabIndex = 2
@@ -71,7 +71,7 @@ Partial Class frmNav
         '
         'btnRemoveThis
         '
-        Me.btnRemoveThis.Location = New System.Drawing.Point(230, 92)
+        Me.btnRemoveThis.Location = New System.Drawing.Point(178, 82)
         Me.btnRemoveThis.Name = "btnRemoveThis"
         Me.btnRemoveThis.Size = New System.Drawing.Size(166, 56)
         Me.btnRemoveThis.TabIndex = 3
@@ -80,40 +80,40 @@ Partial Class frmNav
         '
         'btnBack
         '
-        Me.btnBack.Image = Global.iptools.My.Resources.Resources.icons8_back_100
-        Me.btnBack.Location = New System.Drawing.Point(129, 13)
+        Me.btnBack.Image = Global.iptools.My.Resources.Resources.Arrow_Back_2_icon
+        Me.btnBack.Location = New System.Drawing.Point(87, 13)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(87, 83)
+        Me.btnBack.Size = New System.Drawing.Size(60, 64)
         Me.btnBack.TabIndex = 4
         Me.ToolTip1.SetToolTip(Me.btnBack, "Move back to previous paragraph.")
         Me.btnBack.UseVisualStyleBackColor = True
         '
         'btnFwd
         '
-        Me.btnFwd.Image = Global.iptools.My.Resources.Resources.icons8_play_100
-        Me.btnFwd.Location = New System.Drawing.Point(232, 13)
+        Me.btnFwd.Image = Global.iptools.My.Resources.Resources.Arrow_Next_2_icon
+        Me.btnFwd.Location = New System.Drawing.Point(153, 13)
         Me.btnFwd.Name = "btnFwd"
-        Me.btnFwd.Size = New System.Drawing.Size(87, 83)
+        Me.btnFwd.Size = New System.Drawing.Size(60, 64)
         Me.btnFwd.TabIndex = 5
         Me.ToolTip1.SetToolTip(Me.btnFwd, "Move forward to next paragraph.")
         Me.btnFwd.UseVisualStyleBackColor = True
         '
         'btnRewind
         '
-        Me.btnRewind.Image = Global.iptools.My.Resources.Resources.icons8_rewind_100
+        Me.btnRewind.Image = Global.iptools.My.Resources.Resources.Arrow_Back_icon
         Me.btnRewind.Location = New System.Drawing.Point(21, 13)
         Me.btnRewind.Name = "btnRewind"
-        Me.btnRewind.Size = New System.Drawing.Size(92, 83)
+        Me.btnRewind.Size = New System.Drawing.Size(60, 64)
         Me.btnRewind.TabIndex = 6
         Me.ToolTip1.SetToolTip(Me.btnRewind, "Move back 5 paragraphs.")
         Me.btnRewind.UseVisualStyleBackColor = True
         '
         'btnffwd
         '
-        Me.btnffwd.Image = Global.iptools.My.Resources.Resources.icons8_fast_forward_100
-        Me.btnffwd.Location = New System.Drawing.Point(335, 13)
+        Me.btnffwd.Image = Global.iptools.My.Resources.Resources.Arrow_Next_icon
+        Me.btnffwd.Location = New System.Drawing.Point(219, 13)
         Me.btnffwd.Name = "btnffwd"
-        Me.btnffwd.Size = New System.Drawing.Size(92, 83)
+        Me.btnffwd.Size = New System.Drawing.Size(60, 64)
         Me.btnffwd.TabIndex = 7
         Me.ToolTip1.SetToolTip(Me.btnffwd, "Move forward 5 paragraphs.")
         Me.btnffwd.UseVisualStyleBackColor = True
@@ -124,14 +124,14 @@ Partial Class frmNav
         Me.Panel1.Controls.Add(Me.btnFwd)
         Me.Panel1.Controls.Add(Me.btnRewind)
         Me.Panel1.Controls.Add(Me.btnBack)
-        Me.Panel1.Location = New System.Drawing.Point(49, 160)
+        Me.Panel1.Location = New System.Drawing.Point(18, 150)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(438, 107)
+        Me.Panel1.Size = New System.Drawing.Size(286, 89)
         Me.Panel1.TabIndex = 7
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(514, 184)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(395, 135)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -142,7 +142,7 @@ Partial Class frmNav
         'lblDigits
         '
         Me.lblDigits.AutoSize = True
-        Me.lblDigits.Location = New System.Drawing.Point(513, 160)
+        Me.lblDigits.Location = New System.Drawing.Point(394, 111)
         Me.lblDigits.Name = "lblDigits"
         Me.lblDigits.Size = New System.Drawing.Size(43, 17)
         Me.lblDigits.TabIndex = 9
@@ -151,7 +151,7 @@ Partial Class frmNav
         'lblPreview
         '
         Me.lblPreview.AutoSize = True
-        Me.lblPreview.Location = New System.Drawing.Point(513, 220)
+        Me.lblPreview.Location = New System.Drawing.Point(394, 171)
         Me.lblPreview.Name = "lblPreview"
         Me.lblPreview.Size = New System.Drawing.Size(48, 17)
         Me.lblPreview.TabIndex = 10
@@ -159,18 +159,18 @@ Partial Class frmNav
         '
         'btnAddNumberSel
         '
-        Me.btnAddNumberSel.Location = New System.Drawing.Point(70, 92)
+        Me.btnAddNumberSel.Location = New System.Drawing.Point(18, 82)
         Me.btnAddNumberSel.Name = "btnAddNumberSel"
         Me.btnAddNumberSel.Size = New System.Drawing.Size(154, 56)
         Me.btnAddNumberSel.TabIndex = 11
         Me.btnAddNumberSel.Text = "Add numbering in selected paragraphs"
         Me.btnAddNumberSel.UseVisualStyleBackColor = True
         '
-        'frmNav
+        'frmNumberParagraphs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(606, 279)
+        Me.ClientSize = New System.Drawing.Size(531, 257)
         Me.Controls.Add(Me.btnAddNumberSel)
         Me.Controls.Add(Me.lblPreview)
         Me.Controls.Add(Me.lblDigits)
@@ -183,7 +183,7 @@ Partial Class frmNav
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimumSize = New System.Drawing.Size(342, 186)
-        Me.Name = "frmNav"
+        Me.Name = "frmNumberParagraphs"
         Me.Text = "Number Paragraphs"
         Me.Panel1.ResumeLayout(False)
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()

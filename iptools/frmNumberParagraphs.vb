@@ -1,5 +1,5 @@
 ﻿Imports System.Text.RegularExpressions
-Public Class frmNav
+Public Class frmNumberParagraphs
     'The paragraphs in the document are numbered with SEQ fields, 
     'the SEQ list has the identifier IPT_PARS
     'the format is [0001], wherein the number of leading zeros is determined by the updown control
@@ -57,8 +57,8 @@ errHandler:
         IsParagraph = True
         text = par.Range.Text
         'remove non-printable characters
-        text = Regex.Replace(Text, "[^A-Za-z0-9\-/]", "")
-        parlen = Len(Text)
+        text = Regex.Replace(text, "[^A-Za-z0-9\-/]", "")
+        parlen = Len(text)
         If parlen = 0 Then IsParagraph = False
 
     End Function
@@ -113,7 +113,7 @@ errHandler:
         Dim txt As String
         Dim i, parcount As Integer
 
-        On Error GoTo errHandler
+        On Error GoTo ErrHandler
 
         If Information.IsNothing(Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection) Then
             Exit Sub
@@ -169,7 +169,7 @@ ErrHandler:
     Private Sub btnFwd_Click(sender As Object, e As EventArgs) Handles btnFwd.Click
         Dim par As Word.Paragraph
         Dim sel As Word.Selection
-        On Error GoTo errHandler
+        On Error GoTo ErrHandler
 
         If Information.IsNothing(Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection) Then
             Exit Sub
@@ -257,8 +257,8 @@ ErrHandler:
 
         Dim strformat As String
         strformat = "00000"
-        strFormat = strFormat.Substring(strFormat.Length - NumericUpDown1.Value, NumericUpDown1.Value)
-        strFormat = Chr(34) & "[" & strFormat & "] " & Chr(34)
+        strformat = strformat.Substring(strformat.Length - NumericUpDown1.Value, NumericUpDown1.Value)
+        strformat = Chr(34) & "[" & strformat & "] " & Chr(34)
 
         genFormatString = strformat
 
