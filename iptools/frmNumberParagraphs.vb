@@ -76,12 +76,17 @@ errHandler:
         doc.Fields.Update()
     End Sub
 
+    ''' <summary>
+    ''' Remove all paragraph numbers
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
         Dim doc As Word.Document
         Dim fld As Word.Field
         Dim txt As String
 
-        'no docuemnt open => exit this subroutien
+        'no document open => exit this subroutine
         If Globals.ThisAddIn.Application.Documents.Count = 0 Then
             Exit Sub
         End If
@@ -92,7 +97,7 @@ errHandler:
         For Each fld In doc.Fields
             If Not Information.IsNothing(fld.Code) Then
                 txt = fld.Code.Text
-                If InStr(txt, "PARS") > 0 Then
+                If InStr(txt, "IPT_PARS") > 0 Then
                     fld.Delete()
                 End If
             End If
@@ -144,51 +149,44 @@ ErrHandler:
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Dim par As Word.Paragraph
-        Dim sel As Word.Selection
-        On Error GoTo ErrHandler
-
-        If Information.IsNothing(Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection) Then
-            Exit Sub
-        End If
-
-        sel = Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection
-        par = sel.Paragraphs(sel.Paragraphs.Count)
-
-        If Information.IsNothing(par.Next) Then
-            Exit Sub
-        End If
-        par = par.Previous
-        par.Range.Select()
-        Exit Sub
-
-ErrHandler:
-        MsgBox(Err.Description)
+        MoveBackPars(1)
     End Sub
 
     Private Sub btnFwd_Click(sender As Object, e As EventArgs) Handles btnFwd.Click
+        MoveForwardPars(1)
+    End Sub
+
+    Sub MoveForwardPars(numPars As Integer)
+
         Dim par As Word.Paragraph
         Dim sel As Word.Selection
         On Error GoTo ErrHandler
 
-        If Information.IsNothing(Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection) Then
+        sel = Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection
+
+        If sel Is Nothing Then
             Exit Sub
         End If
 
-        sel = Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection
         par = sel.Paragraphs(sel.Paragraphs.Count)
 
-        If Information.IsNothing(par.Next) Then
-            Exit Sub
-        End If
-        par = par.Next
-        par.Range.Select()
+        For i = 1 To numPars
+            If par.Next Is Nothing Then Exit Sub
+            par = par.Next
+            par.Range.Select()
+        Next
+
         Exit Sub
 ErrHandler:
         MsgBox(Err.Description)
+
     End Sub
 
     Private Sub btnRewind_Click(sender As Object, e As EventArgs) Handles btnRewind.Click
+        MoveBackPars(5)
+    End Sub
+
+    Sub MoveBackPars(numPars As Integer)
         Dim sel As Word.Selection
         Dim par, prevPar As Word.Paragraph
         On Error GoTo ErrHandler
@@ -200,10 +198,9 @@ ErrHandler:
         sel = Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection
         par = sel.Paragraphs(1)
 
-        For i = 1 To 5
+        For i = 1 To numPars
 
-
-            If Information.IsNothing(par.Previous) Then
+            If par.Previous Is Nothing Then
                 Exit Sub
             End If
 
@@ -217,31 +214,7 @@ ErrHandler:
     End Sub
 
     Private Sub btnffwd_Click(sender As Object, e As EventArgs) Handles btnffwd.Click
-        Dim sel As Word.Selection
-        Dim par As Word.Paragraph
-        On Error GoTo ErrHandler
-
-        If Information.IsNothing(Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection) Then
-            Exit Sub
-        End If
-
-        sel = Globals.ThisAddIn.Application.ActiveDocument.ActiveWindow.Selection
-        par = sel.Paragraphs(sel.Paragraphs.Count)
-
-        For i = 1 To 5
-
-
-            If Information.IsNothing(par.Next) Then
-                Exit Sub
-            End If
-
-            par = par.Next
-            par.Range.Select()
-        Next
-
-        Exit Sub
-ErrHandler:
-        MsgBox(Err.Description)
+        MoveForwardPars(5)
     End Sub
 
     Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
@@ -289,7 +262,7 @@ ErrHandler:
         par = sel.Paragraphs(1)
 
         i = 0
-        Do Until i = parcount Or Information.IsNothing(par)
+        Do Until i = parcount Or par Is Nothing
 
             rg = par.Range
             partext = rg.Text
@@ -309,4 +282,9 @@ ErrHandler:
 errHandler:
         MsgBox(Err.Description)
     End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        Close()
+    End Sub
+
 End Class

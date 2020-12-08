@@ -38,6 +38,7 @@ Partial Class frmNumberParagraphs
         Me.lblDigits = New System.Windows.Forms.Label()
         Me.lblPreview = New System.Windows.Forms.Label()
         Me.btnAddNumberSel = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -131,7 +132,7 @@ Partial Class frmNumberParagraphs
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(395, 135)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(361, 106)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {5, 0, 0, 0})
         Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
@@ -142,7 +143,7 @@ Partial Class frmNumberParagraphs
         'lblDigits
         '
         Me.lblDigits.AutoSize = True
-        Me.lblDigits.Location = New System.Drawing.Point(394, 111)
+        Me.lblDigits.Location = New System.Drawing.Point(360, 82)
         Me.lblDigits.Name = "lblDigits"
         Me.lblDigits.Size = New System.Drawing.Size(43, 17)
         Me.lblDigits.TabIndex = 9
@@ -151,9 +152,10 @@ Partial Class frmNumberParagraphs
         'lblPreview
         '
         Me.lblPreview.AutoSize = True
-        Me.lblPreview.Location = New System.Drawing.Point(394, 171)
+        Me.lblPreview.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPreview.Location = New System.Drawing.Point(424, 95)
         Me.lblPreview.Name = "lblPreview"
-        Me.lblPreview.Size = New System.Drawing.Size(48, 17)
+        Me.lblPreview.Size = New System.Drawing.Size(68, 25)
         Me.lblPreview.TabIndex = 10
         Me.lblPreview.Text = "[0001]"
         '
@@ -166,11 +168,21 @@ Partial Class frmNumberParagraphs
         Me.btnAddNumberSel.Text = "Add numbering in selected paragraphs"
         Me.btnAddNumberSel.UseVisualStyleBackColor = True
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(410, 167)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(94, 56)
+        Me.btnClose.TabIndex = 12
+        Me.btnClose.Text = "&Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmNumberParagraphs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(531, 257)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnAddNumberSel)
         Me.Controls.Add(Me.lblPreview)
         Me.Controls.Add(Me.lblDigits)
@@ -206,4 +218,5 @@ Partial Class frmNumberParagraphs
     Friend WithEvents lblDigits As Windows.Forms.Label
     Friend WithEvents lblPreview As Windows.Forms.Label
     Friend WithEvents btnAddNumberSel As Windows.Forms.Button
+    Friend WithEvents btnClose As Windows.Forms.Button
 End Class
